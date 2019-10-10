@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-
-class TodoList extends Component {
+type items = {};
+class TodoList extends Component <{}, { items: any }> {
+    _inputElement: any
+    items: any
     constructor (props: any) {
         super(props);
 
@@ -12,15 +14,35 @@ class TodoList extends Component {
     }
     
     addItem(e: any){
+        if (this._inputElement.value !== ""){
+            var newItem = {
+                text: this._inputElement.value,
+                key: Date.now()
+            };
+            
+        this.setState((prevState) => {
+            return{
+                items: prevState.items.concat(newItem)
+            };
+        });
 
-    }
+        this._inputElement.value = "";
+
+        }
+        
+        console.log(this.state.items);
+
+        e.preventDefault();
+
+    };
 
        render () {
         return(
             <div className="todoListMain">
                 <div className="header">
                     <form onSubmit={this.addItem}>
-                        <input placeholder="task one">
+                        <input ref={(a) => this._inputElement = a}
+                            placeholder="task one">
                         </input>
                         <button type="submit">add</button>
                     </form>
