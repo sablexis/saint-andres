@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 
 class TodoList extends Component {
-    render () {
+    constructor (props: any) {
+        super(props);
+
+        this.state = {
+            items: []
+        };
+
+        this.addItem = this.addItem.bind(this);
+    }
+    
+    addItem(e: any){
+
+    }
+
+       render () {
         return(
             <div className="todoListMain">
                 <div className="header">
-                    <form>
+                    <form onSubmit={this.addItem}>
                         <input placeholder="task one">
                         </input>
                         <button type="submit">add</button>
