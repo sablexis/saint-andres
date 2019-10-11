@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-type items = {};
+import TodoItems from "./TodoItems";
+//type items = {};
 class TodoList extends Component <{}, { items: any }> {
     _inputElement: any
-    items: any
     constructor (props: any) {
         super(props);
 
@@ -47,6 +47,7 @@ class TodoList extends Component <{}, { items: any }> {
                         <button type="submit">add</button>
                     </form>
                 </div>
+                 <TodoItems entries ={this.state.items}/>
             </div>
         );
     }
