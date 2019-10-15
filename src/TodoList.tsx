@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
+import "./App.css";
 //type items = {};
 class TodoList extends Component <{}, { items: any }> {
     _inputElement: any
